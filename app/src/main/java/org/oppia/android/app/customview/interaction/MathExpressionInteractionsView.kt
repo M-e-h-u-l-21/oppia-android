@@ -85,7 +85,7 @@ class MathExpressionInteractionsView @JvmOverloads constructor(
 
   private fun restoreHint() {
     hint = hintText
-    if (text?.isEmpty()==true) {
+    if (text?.isEmpty() == true) {
       setTypeface(typeface, Typeface.ITALIC)
     }
     setSingleLine(false)

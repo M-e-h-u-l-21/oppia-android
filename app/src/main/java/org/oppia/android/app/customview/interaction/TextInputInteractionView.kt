@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
 import org.oppia.android.app.player.state.listener.StateKeyboardButtonListener
 import org.oppia.android.app.utility.KeyboardHelper.Companion.hideSoftKeyboard
@@ -67,7 +66,7 @@ class TextInputInteractionView @JvmOverloads constructor(
 
   private fun restoreHint() {
     hint = hintText
-    if (text?.isEmpty()==true) setTypeface(typeface, Typeface.ITALIC)
+    if (text?.isEmpty() == true) setTypeface(typeface, Typeface.ITALIC)
     setSingleLine(false)
   }
 }
