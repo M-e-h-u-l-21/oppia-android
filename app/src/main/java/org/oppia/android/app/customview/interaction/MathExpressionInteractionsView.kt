@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import androidx.appcompat.widget.AppCompatEditText
 import org.oppia.android.app.player.state.listener.StateKeyboardButtonListener
 import org.oppia.android.app.utility.KeyboardHelper.Companion.hideSoftKeyboard
 import org.oppia.android.app.utility.KeyboardHelper.Companion.showSoftKeyboard
@@ -28,7 +29,7 @@ class MathExpressionInteractionsView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = android.R.attr.editTextStyle
-) : EditText(context, attrs, defStyle), View.OnFocusChangeListener {
+) : AppCompatEditText(context, attrs, defStyle), View.OnFocusChangeListener {
   private var hintText: CharSequence = ""
   private val stateKeyboardButtonListener: StateKeyboardButtonListener
 
@@ -84,7 +85,9 @@ class MathExpressionInteractionsView @JvmOverloads constructor(
 
   private fun restoreHint() {
     hint = hintText
-    if (text.isEmpty()) setTypeface(typeface, Typeface.ITALIC)
+    if (text?.isEmpty()==true) {
+      setTypeface(typeface, Typeface.ITALIC)
+    }
     setSingleLine(false)
   }
 }

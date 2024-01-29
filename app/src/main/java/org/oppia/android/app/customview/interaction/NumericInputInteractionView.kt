@@ -9,6 +9,7 @@ import android.view.KeyEvent.KEYCODE_BACK
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import androidx.appcompat.widget.AppCompatEditText
 import org.oppia.android.app.player.state.listener.StateKeyboardButtonListener
 import org.oppia.android.app.utility.KeyboardHelper.Companion.hideSoftKeyboard
 import org.oppia.android.app.utility.KeyboardHelper.Companion.showSoftKeyboard
@@ -25,7 +26,7 @@ class NumericInputInteractionView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = android.R.attr.editTextStyle
-) : EditText(context, attrs, defStyle), View.OnFocusChangeListener {
+) : AppCompatEditText(context, attrs, defStyle), View.OnFocusChangeListener {
   private val stateKeyboardButtonListener: StateKeyboardButtonListener
   private var hintText: CharSequence = ""
 
@@ -69,7 +70,9 @@ class NumericInputInteractionView @JvmOverloads constructor(
 
   private fun restoreHint() {
     hint = hintText
-    if (text.isEmpty()) setTypeface(typeface, Typeface.ITALIC)
+    if (text?.isEmpty()==true) {
+      setTypeface(typeface, Typeface.ITALIC)
+    }
     setSingleLine(false)
   }
 }
